@@ -283,7 +283,10 @@ def run_one(pathway_id, retrieved, fast_run, write, login, temp):
                 print("author_name")
                 print(author_name)
                 author_qiri = str(row[3])
-                author_qid = author_qiri.replace("http://www.wikidata.org/entity/", "")
+                if ("https://www.wikidata.org/wiki/" in author_qiri):
+                    author_qid = author_qiri.replace("https://www.wikidata.org/wiki/", "")
+                if ("http://www.wikidata.org/entity/" in author_qiri):
+                    author_qid = author_qiri.replace("http://www.wikidata.org/entity/", "")
                 print("author_qid")
                 print(author_qid)
                 # P50 = author
