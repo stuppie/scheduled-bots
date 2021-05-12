@@ -414,7 +414,7 @@ def get_PathwayElements(pathway, datatype, temp, prep):
     else:
         for row in qres2:
             ids.append("\"" + str(row[2]).replace("http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID", "").replace(
-                "http://identifiers.org/ncbigene/", "") + "\"")
+            "http://identifiers.org/ncbigene/", "").replace("https://identifiers.org/ncbigene/", "") + "\"")
 
 
     # Check for existence of the ids in wikidata
