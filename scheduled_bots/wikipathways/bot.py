@@ -253,7 +253,9 @@ def run_one(pathway_id, retrieved, fast_run, write, login, temp):
                 PREFIX wp:    <http://vocabularies.wikipathways.org/wp#>
                 SELECT ?author ?authorName ?authorHomepage ?authorQIRI
                 WHERE {
-                  <http://identifiers.org/wikipathways/""" + pathway_id + """> dc:creator ?author .
+                  { <http://identifiers.org/wikipathways/""" + pathway_id + """> dc:creator ?author . }
+                  UNION
+                  { <https://identifiers.org/wikipathways/""" + pathway_id + """> dc:creator ?author . }
                   ?author a                    foaf:Person ;
                   foaf:name            ?authorName ;
                   foaf:homepage            ?authorHomepage .
